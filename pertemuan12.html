@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pertemuan 12 - Deep Learning</title>
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="machine_learning.css">
+</head>
+<body>
+
+<section class="container materi-detail">
+  <h2>Pertemuan 12</h2>
+  <p class="subtitle">Deep Learning</p>
+
+  <div class="card materi-card">
+    <h3>Pengertian Deep Learning</h3>
+    <p>
+      Deep Learning merupakan cabang dari Machine Learning
+      yang menggunakan <b>Artificial Neural Network</b> dengan
+      banyak lapisan (hidden layer) untuk mempelajari pola
+      kompleks dari data dalam jumlah besar.
+    </p>
+  </div>
+
+  <div class="card materi-card">
+    <h3>Hubungan Deep Learning dan Neural Network</h3>
+    <p>
+      Deep Learning adalah pengembangan dari Neural Network,
+      di mana jaringan saraf memiliki banyak lapisan sehingga
+      mampu mengekstraksi fitur secara otomatis tanpa
+      rekayasa fitur manual.
+    </p>
+  </div>
+
+  <div class="card materi-card">
+    <h3>Komponen Utama Deep Learning</h3>
+    <ul>
+      <li>Input Layer</li>
+      <li>Hidden Layer</li>
+      <li>Output Layer</li>
+      <li>Activation Function</li>
+      <li>Loss Function</li>
+      <li>Optimizer</li>
+    </ul>
+  </div>
+
+  <div class="card materi-card">
+    <h3>Activation Function</h3>
+    <ul>
+      <li>ReLU (Rectified Linear Unit)</li>
+      <li>Sigmoid</li>
+      <li>Tanh</li>
+      <li>Softmax</li>
+    </ul>
+  </div>
+
+  <div class="card materi-card">
+    <h3>Framework Deep Learning</h3>
+    <ul>
+      <li>TensorFlow</li>
+      <li>Keras</li>
+      <li>PyTorch</li>
+    </ul>
+  </div>
+
+  <div class="card materi-card">
+    <h3>Contoh Implementasi Deep Learning (Keras)</h3>
+    <pre>
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense
+
+model = Sequential()
+model.add(Dense(16, activation='relu', input_shape=(10,)))
+model.add(Dense(8, activation='relu'))
+model.add(Dense(1, activation='sigmoid'))
+
+model.compile(
+    optimizer='adam',
+    loss='binary_crossentropy',
+    metrics=['accuracy']
+)
+
+model.summary()
+    </pre>
+  </div>
+
+  <div class="card materi-card">
+    <h3>Kelebihan Deep Learning</h3>
+    <ul>
+      <li>Mampu menangani data kompleks</li>
+      <li>Akurasi tinggi pada dataset besar</li>
+      <li>Ekstraksi fitur otomatis</li>
+    </ul>
+  </div>
+
+  <div class="card materi-card">
+    <h3>Kekurangan Deep Learning</h3>
+    <ul>
+      <li>Membutuhkan data dalam jumlah besar</li>
+      <li>Komputasi tinggi</li>
+      <li>Sulit diinterpretasikan</li>
+    </ul>
+  </div>
+
+  <div class="materi-nav">
+    <a href="pertemuan11.html" class="btn">⬅ Pertemuan 11</a>
+    <a href="pertemuan13.html" class="btn primary">Pertemuan 13 ➜</a>
+  </div>
+</section>
+
+<footer>
+  © <span id="year"></span> Nama Lengkap Anda | Machine Learning
+</footer>
+
+<script src="machine_learning.js"></script>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

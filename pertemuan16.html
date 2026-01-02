@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pertemuan 16 - Object Segmentation</title>
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="machine_learning.css">
+</head>
+<body>
+
+<section class="container materi-detail">
+  <h2>Pertemuan 16</h2>
+  <p class="subtitle">Object Segmentation</p>
+
+  <div class="card materi-card">
+    <h3>Pengenalan Object Segmentation</h3>
+    <p>
+      Object Segmentation adalah teknik dalam Computer Vision
+      yang bertujuan untuk memisahkan setiap piksel gambar
+      ke dalam kelas tertentu sehingga objek dapat
+      diidentifikasi secara lebih detail dibandingkan
+      object detection.
+    </p>
+  </div>
+
+  <div class="card materi-card">
+    <h3>Perbedaan Detection dan Segmentation</h3>
+    <ul>
+      <li><b>Object Detection</b>: Menggunakan bounding box</li>
+      <li><b>Object Segmentation</b>: Menggunakan mask piksel</li>
+    </ul>
+  </div>
+
+  <div class="card materi-card">
+    <h3>Jenis Object Segmentation</h3>
+    <ul>
+      <li>Semantic Segmentation</li>
+      <li>Instance Segmentation</li>
+      <li>Panoptic Segmentation</li>
+    </ul>
+  </div>
+
+  <div class="card materi-card">
+    <h3>Studi Kasus Object Segmentation</h3>
+    <p>
+      Object segmentation digunakan dalam berbagai bidang,
+      seperti segmentasi jalan, medis (CT Scan),
+      kendaraan otonom, dan industri.
+    </p>
+  </div>
+
+  <div class="card materi-card">
+    <h3>Model untuk Object Segmentation</h3>
+    <ul>
+      <li>U-Net</li>
+      <li>Mask R-CNN</li>
+      <li>YOLOv8 Segmentation</li>
+    </ul>
+  </div>
+
+  <div class="card materi-card">
+    <h3>Dataset dan Anotasi</h3>
+    <ul>
+      <li>Dataset dengan anotasi mask</li>
+      <li>Format polygon atau pixel mask</li>
+      <li>Tools anotasi: CVAT, LabelMe</li>
+    </ul>
+  </div>
+
+  <div class="card materi-card">
+    <h3>Contoh Implementasi YOLOv8 Segmentation</h3>
+    <pre>
+pip install ultralytics
+    </pre>
+
+    <pre>
+from ultralytics import YOLO
+
+model = YOLO("yolov8n-seg.pt")
+
+model.train(
+    data="segmentation_dataset.yaml",
+    epochs=50,
+    imgsz=640
+)
+
+results = model("image.jpg", show=True)
+    </pre>
+  </div>
+
+  <div class="card materi-card">
+    <h3>Manfaat Object Segmentation</h3>
+    <ul>
+      <li>Akurasi deteksi objek lebih detail</li>
+      <li>Digunakan pada sistem vision tingkat lanjut</li>
+      <li>Mendukung project AI skala industri</li>
+    </ul>
+  </div>
+
+  <div class="materi-nav">
+    <a href="pertemuan15.html" class="btn">⬅ Pertemuan 15</a>
+    <a href="machine_learning.html" class="btn primary">Kembali ke Beranda ➜</a>
+  </div>
+</section>
+
+<footer>
+  © <span id="year"></span> Nama Lengkap Anda | Machine Learning
+</footer>
+
+<script src="machine_learning.js"></script>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

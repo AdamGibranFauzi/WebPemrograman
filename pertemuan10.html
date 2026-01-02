@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pertemuan 10 - Decision Tree</title>
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="machine_learning.css">
+</head>
+<body>
+
+<section class="container materi-detail">
+  <h2>Pertemuan 10</h2>
+  <p class="subtitle">Decision Tree</p>
+
+  <div class="card materi-card">
+    <h3>Pengertian Decision Tree</h3>
+    <p>
+      Decision Tree adalah algoritma Machine Learning
+      yang digunakan untuk klasifikasi dan regresi.
+      Model ini bekerja dengan cara membagi data
+      ke dalam cabang-cabang berdasarkan aturan
+      tertentu hingga menghasilkan keputusan.
+    </p>
+  </div>
+
+  <div class="card materi-card">
+    <h3>Struktur Decision Tree</h3>
+    <ul>
+      <li><b>Root Node</b>: Node awal yang mewakili seluruh data</li>
+      <li><b>Internal Node</b>: Node percabangan berdasarkan fitur</li>
+      <li><b>Branch</b>: Hasil keputusan dari suatu node</li>
+      <li><b>Leaf Node</b>: Hasil akhir atau prediksi</li>
+    </ul>
+  </div>
+
+  <div class="card materi-card">
+    <h3>Jenis Decision Tree</h3>
+    <ul>
+      <li>Decision Tree Klasifikasi</li>
+      <li>Decision Tree Regresi</li>
+    </ul>
+  </div>
+
+  <div class="card materi-card">
+    <h3>Kriteria Pemilihan Atribut</h3>
+    <ul>
+      <li>Information Gain</li>
+      <li>Entropy</li>
+      <li>Gini Index</li>
+    </ul>
+  </div>
+
+  <div class="card materi-card">
+    <h3>Kelebihan Decision Tree</h3>
+    <ul>
+      <li>Mudah dipahami dan diinterpretasikan</li>
+      <li>Tidak memerlukan normalisasi data</li>
+      <li>Dapat digunakan untuk data numerik dan kategorikal</li>
+    </ul>
+  </div>
+
+  <div class="card materi-card">
+    <h3>Kekurangan Decision Tree</h3>
+    <ul>
+      <li>Mudah mengalami overfitting</li>
+      <li>Kurang stabil terhadap perubahan data</li>
+      <li>Kurang optimal untuk data yang kompleks</li>
+    </ul>
+  </div>
+
+  <div class="card materi-card">
+    <h3>Contoh Implementasi Decision Tree dengan Python</h3>
+    <pre>
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.metrics import accuracy_score
+
+# Load dataset
+data = load_iris()
+X = data.data
+y = data.target
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42
+)
+
+model = DecisionTreeClassifier()
+model.fit(X_train, y_train)
+
+y_pred = model.predict(X_test)
+
+print("Akurasi:", accuracy_score(y_test, y_pred))
+    </pre>
+  </div>
+
+  <div class="materi-nav">
+    <a href="pertemuan9.html" class="btn">⬅ Pertemuan 9</a>
+    <a href="pertemuan11.html" class="btn primary">Pertemuan 11 ➜</a>
+  </div>
+</section>
+
+<footer>
+  © <span id="year"></span> Nama Lengkap Anda | Machine Learning
+</footer>
+
+<script src="machine_learning.js"></script>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

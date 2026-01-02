@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pertemuan 4 - K-Nearest Neighbor</title>
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="machine_learning.css">
+</head>
+<body>
+
+<section class="container materi-detail">
+  <h2>Pertemuan 4</h2>
+  <p class="subtitle">K-Nearest Neighbor (KNN)</p>
+
+  <div class="card materi-card">
+    <h3>Pengertian K-Nearest Neighbor</h3>
+    <p>
+      K-Nearest Neighbor (KNN) adalah salah satu algoritma
+      <b>Supervised Learning</b> yang digunakan untuk
+      klasifikasi maupun regresi.
+      Algoritma ini bekerja dengan mencari <b>k data terdekat</b>
+      dari suatu data baru berdasarkan jarak tertentu.
+    </p>
+  </div>
+
+  <div class="card materi-card">
+    <h3>Cara Kerja Algoritma KNN</h3>
+    <ol>
+      <li>Menentukan nilai <b>k</b> (jumlah tetangga terdekat)</li>
+      <li>Menghitung jarak data baru dengan seluruh data training</li>
+      <li>Memilih k data dengan jarak terdekat</li>
+      <li>
+        Menentukan kelas berdasarkan mayoritas tetangga
+        (untuk klasifikasi)
+      </li>
+    </ol>
+  </div>
+
+  <div class="card materi-card">
+    <h3>Metode Perhitungan Jarak</h3>
+    <ul>
+      <li>Euclidean Distance</li>
+      <li>Manhattan Distance</li>
+      <li>Minkowski Distance</li>
+    </ul>
+
+    <p><b>Contoh Euclidean Distance:</b></p>
+    <pre>
+d = √((x1 - y1)² + (x2 - y2)²)
+    </pre>
+  </div>
+
+  <div class="card materi-card">
+    <h3>Kelebihan dan Kekurangan KNN</h3>
+    <p><b>Kelebihan:</b></p>
+    <ul>
+      <li>Mudah dipahami dan diimplementasikan</li>
+      <li>Tidak memerlukan proses training yang kompleks</li>
+    </ul>
+
+    <p><b>Kekurangan:</b></p>
+    <ul>
+      <li>Waktu prediksi relatif lama</li>
+      <li>Sensitif terhadap data berskala berbeda</li>
+      <li>Memerlukan memori besar untuk dataset besar</li>
+    </ul>
+  </div>
+
+  <div class="card materi-card">
+    <h3>Contoh Penerapan KNN</h3>
+    <ul>
+      <li>Klasifikasi jenis bunga (Iris Dataset)</li>
+      <li>Rekomendasi produk</li>
+      <li>Deteksi penyakit</li>
+      <li>Pengenalan pola</li>
+    </ul>
+  </div>
+
+  <div class="card materi-card">
+    <h3>Contoh Implementasi KNN dengan Python</h3>
+    <pre>
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.neighbors import KNeighborsClassifier
+
+# Load dataset
+data = load_iris()
+X = data.data
+y = data.target
+
+# Split data
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42
+)
+
+# Model KNN
+knn = KNeighborsClassifier(n_neighbors=5)
+knn.fit(X_train, y_train)
+
+# Evaluasi
+print("Akurasi:", knn.score(X_test, y_test))
+    </pre>
+  </div>
+
+  <div class="materi-nav">
+    <a href="pertemuan3.html" class="btn">⬅ Pertemuan 3</a>
+    <a href="pertemuan5.html" class="btn primary">Pertemuan 5 ➜</a>
+  </div>
+</section>
+
+<footer>
+  © <span id="year"></span> Nama Lengkap Anda | Machine Learning
+</footer>
+
+<script src="machine_learning.js"></script>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

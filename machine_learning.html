@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Machine Learning</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="machine_learning.css">
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <h1>Machine Learning</h1>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#materi">Materi</a></li>
+      <li><a href="#tentang">Tentang</a></li>
+    </ul>
+  </div>
+</header>
+
+<section id="home" class="hero">
+  <h2>Mata Kuliah Machine Learning</h2>
+  <p>Rangkuman materi perkuliahan Machine Learning (1–16)</p>
+</section>
+
+<section id="materi" class="container">
+  <h2 class="section-title">Daftar Materi</h2>
+
+  <div class="grid">
+    <!-- 1–8 -->
+    <div class="card" data-link="pertemuan1.html"><h3>Pertemuan 1</h3><p>Pengenalan Machine Learning</p><span>Lihat Materi</span></div>
+    <div class="card" data-link="pertemuan2.html"><h3>Pertemuan 2</h3><p>data preprocessing</p><span>Lihat Materi</span></div>
+    <div class="card" data-link="pertemuan3.html"><h3>Pertemuan 3</h3><p>Supervised Learning</p><span>Lihat Materi</span></div>
+    <div class="card" data-link="pertemuan4.html"><h3>Pertemuan 4</h3><p>KNN</p><span>Lihat Materi</span></div>
+    <div class="card" data-link="pertemuan5.html"><h3>Pertemuan 5</h3><p>Naive Baiyes</p><span>Lihat Materi</span></div>
+    <div class="card" data-link="pertemuan6.html"><h3>Pertemuan 6</h3><p>Perceptron</p><span>Lihat Materi</span></div>
+    <div class="card" data-link="pertemuan7.html"><h3>Pertemuan 7</h3><p>Linear Regression</p><span>Lihat Materi</span></div>
+    <div class="card" data-link="pertemuan8.html"><h3>Pertemuan 8</h3><p>Logistic Regression</p><span>Lihat Materi</span></div>
+
+    <!-- 9–16 -->
+    <div class="card" data-link="pertemuan9.html"><h3>Pertemuan 9</h3><p>Evaluasi Model Machine Learning</p><span>Lihat Materi</span></div>
+    <div class="card" data-link="pertemuan10.html"><h3>Pertemuan 10</h3><p>Decision Tree</p><span>Lihat Materi</span></div>
+    <div class="card" data-link="pertemuan11.html"><h3>Pertemuan 11</h3><p>KNN Berbasis wWeb Flask</p><span>Lihat Materi</span></div>
+    <div class="card" data-link="pertemuan12.html"><h3>Pertemuan 12</h3><p>Deep Learning</p><span>Lihat Materi</span></div>
+    <div class="card" data-link="pertemuan13.html"><h3>Pertemuan 13</h3><p>Object Detection</p><span>Lihat Materi</span></div>
+    <div class="card" data-link="pertemuan14.html"><h3>Pertemuan 14</h3><p>Multi-Label Detection</p><span>Lihat Materi</span></div>
+    <div class="card" data-link="pertemuan15.html"><h3>Pertemuan 15</h3><p>Real-Time Detection</p><span>Lihat Materi</span></div>
+    <div class="card" data-link="pertemuan16.html"><h3>Pertemuan 16</h3><p>object Segmentation</p><span>Lihat Materi</span></div>
+    <div class="card" data-link="semua_materi.html"><h3>Semua Materi Ada Disini</h3><p>Kumpulan lengkap materi Machine Learning</p><span>Lihat Materi</span></div>
+  </div>
+</section>
+
+<section id="tentang" class="container">
+  <h2 class="section-title">Pembuat Website ☺️</h2>
+  <ul class="info">
+    <li><b>Nama:</b>Adam Gibran Fauzi</li>
+    <li><b>NIM:</b>231011403438</li>
+    <li><b>Mata Kuliah:</b> Machine Learning</li>
+  </ul>
+</section>
+
+<footer>
+  © <span id="year"></span> Adam Gibran Fauzi
+</footer>
+
+<script src="machine_learning.js"></script>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

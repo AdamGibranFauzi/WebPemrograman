@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pertemuan 5 - Naive Bayes</title>
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="machine_learning.css">
+</head>
+<body>
+
+<section class="container materi-detail">
+  <h2>Pertemuan 5</h2>
+  <p class="subtitle">Naive Bayes</p>
+
+  <div class="card materi-card">
+    <h3>Pengertian Naive Bayes</h3>
+    <p>
+      Naive Bayes adalah algoritma <b>Supervised Learning</b> berbasis
+      probabilitas yang menggunakan <b>Teorema Bayes</b>.
+      Algoritma ini disebut "naive" karena mengasumsikan bahwa
+      setiap fitur bersifat independen satu sama lain.
+    </p>
+  </div>
+
+  <div class="card materi-card">
+    <h3>Teorema Bayes</h3>
+    <p>
+      Rumus Teorema Bayes adalah sebagai berikut:
+    </p>
+    <pre>
+P(A|B) = (P(B|A) × P(A)) / P(B)
+    </pre>
+    <p>
+      Keterangan:
+    </p>
+    <ul>
+      <li>P(A|B) → Probabilitas A jika diketahui B</li>
+      <li>P(B|A) → Probabilitas B jika diketahui A</li>
+      <li>P(A) → Probabilitas awal A</li>
+      <li>P(B) → Probabilitas awal B</li>
+    </ul>
+  </div>
+
+  <div class="card materi-card">
+    <h3>Jenis-Jenis Naive Bayes</h3>
+    <ul>
+      <li>Gaussian Naive Bayes</li>
+      <li>Multinomial Naive Bayes</li>
+      <li>Bernoulli Naive Bayes</li>
+    </ul>
+  </div>
+
+  <div class="card materi-card">
+    <h3>Langkah Kerja Naive Bayes</h3>
+    <ol>
+      <li>Menghitung probabilitas awal (prior)</li>
+      <li>Menghitung probabilitas bersyarat</li>
+      <li>Mengalikan seluruh probabilitas fitur</li>
+      <li>Menentukan kelas dengan probabilitas terbesar</li>
+    </ol>
+  </div>
+
+  <div class="card materi-card">
+    <h3>Kelebihan dan Kekurangan Naive Bayes</h3>
+    <p><b>Kelebihan:</b></p>
+    <ul>
+      <li>Proses komputasi cepat</li>
+      <li>Efektif untuk dataset besar</li>
+      <li>Bekerja baik pada data teks</li>
+    </ul>
+
+    <p><b>Kekurangan:</b></p>
+    <ul>
+      <li>Asumsi independensi fitur sering tidak realistis</li>
+      <li>Akurasi dapat menurun jika fitur saling berkorelasi</li>
+    </ul>
+  </div>
+
+  <div class="card materi-card">
+    <h3>Contoh Implementasi Naive Bayes dengan Python</h3>
+    <pre>
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.naive_bayes import GaussianNB
+
+# Load dataset
+data = load_iris()
+X = data.data
+y = data.target
+
+# Split data
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42
+)
+
+# Model Naive Bayes
+nb = GaussianNB()
+nb.fit(X_train, y_train)
+
+# Evaluasi
+print("Akurasi:", nb.score(X_test, y_test))
+    </pre>
+  </div>
+
+  <div class="materi-nav">
+    <a href="pertemuan4.html" class="btn">⬅ Pertemuan 4</a>
+    <a href="pertemuan6.html" class="btn primary">Pertemuan 6 ➜</a>
+  </div>
+</section>
+
+<footer>
+  © <span id="year"></span> Nama Lengkap Anda | Machine Learning
+</footer>
+
+<script src="machine_learning.js"></script>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pertemuan 2 - Data Preprocessing</title>
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="machine_learning.css">
+</head>
+<body>
+
+<section class="container materi-detail">
+  <h2>Pertemuan 2</h2>
+  <p class="subtitle">Data Preprocessing</p>
+
+  <div class="card materi-card">
+    <h3>Pengertian Data Preprocessing</h3>
+    <p>
+      Data preprocessing adalah tahapan awal dalam Machine Learning
+      yang bertujuan untuk membersihkan, menyiapkan, dan
+      mentransformasikan data agar siap digunakan dalam proses
+      pelatihan model.
+    </p>
+    <p>
+      Kualitas data sangat berpengaruh terhadap performa model
+      Machine Learning.
+    </p>
+  </div>
+
+  <div class="card materi-card">
+    <h3>Tahapan Data Preprocessing</h3>
+    <ul>
+      <li>Data Cleaning (pembersihan data)</li>
+      <li>Handling Missing Values</li>
+      <li>Data Transformation</li>
+      <li>Data Normalization & Standardization</li>
+      <li>Feature Selection</li>
+    </ul>
+  </div>
+
+  <div class="card materi-card">
+    <h3>Data Cleaning</h3>
+    <p>
+      Data cleaning bertujuan untuk menghilangkan kesalahan pada data,
+      seperti data duplikat, inkonsistensi format, dan nilai yang tidak valid.
+    </p>
+    <ul>
+      <li>Menghapus data duplikat</li>
+      <li>Memperbaiki kesalahan penulisan</li>
+      <li>Menghapus data yang tidak relevan</li>
+    </ul>
+  </div>
+
+  <div class="card materi-card">
+    <h3>Handling Missing Values</h3>
+    <p>
+      Missing value adalah kondisi di mana data tidak memiliki nilai.
+      Penanganannya dapat dilakukan dengan beberapa cara:
+    </p>
+    <ul>
+      <li>Menghapus baris data yang kosong</li>
+      <li>Mengisi dengan nilai rata-rata (mean)</li>
+      <li>Mengisi dengan nilai tengah (median)</li>
+      <li>Mengisi dengan nilai yang paling sering muncul (mode)</li>
+    </ul>
+  </div>
+
+  <div class="card materi-card">
+    <h3>Normalisasi dan Standardisasi</h3>
+    <p>
+      Normalisasi dan standardisasi digunakan untuk menyamakan
+      skala data sehingga model dapat bekerja lebih optimal.
+    </p>
+    <ul>
+      <li><b>Normalisasi</b> → Mengubah data ke rentang 0–1</li>
+      <li><b>Standardisasi</b> → Mengubah data ke distribusi normal</li>
+    </ul>
+  </div>
+
+  <div class="card materi-card">
+    <h3>Contoh Data Preprocessing dengan Python</h3>
+    <pre>
+import pandas as pd
+from sklearn.preprocessing import MinMaxScaler
+
+data = pd.read_csv("data.csv")
+
+# Mengisi missing value
+data.fillna(data.mean(), inplace=True)
+
+# Normalisasi data
+scaler = MinMaxScaler()
+data_scaled = scaler.fit_transform(data)
+    </pre>
+  </div>
+
+  <div class="materi-nav">
+    <a href="pertemuan1.html" class="btn">⬅ Pertemuan 1</a>
+    <a href="pertemuan3.html" class="btn primary">Pertemuan 3 ➜</a>
+  </div>
+</section>
+
+<footer>
+  © <span id="year"></span> Nama Lengkap Anda | Machine Learning
+</footer>
+
+<script src="machine_learning.js"></script>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

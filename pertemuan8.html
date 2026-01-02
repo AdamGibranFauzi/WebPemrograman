@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pertemuan 8 - Logistic Regression</title>
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="machine_learning.css">
+</head>
+<body>
+
+<section class="container materi-detail">
+  <h2>Pertemuan 8</h2>
+  <p class="subtitle">Logistic Regression</p>
+
+  <div class="card materi-card">
+    <h3>Pengertian Logistic Regression</h3>
+    <p>
+      Logistic Regression adalah algoritma
+      <b>Supervised Learning</b> yang digunakan
+      untuk masalah <b>klasifikasi</b>.
+      Algoritma ini memodelkan probabilitas suatu
+      kelas menggunakan fungsi logistik (sigmoid).
+    </p>
+  </div>
+
+  <div class="card materi-card">
+    <h3>Fungsi Sigmoid</h3>
+    <p>
+      Fungsi sigmoid digunakan untuk
+      mengubah nilai menjadi rentang 0–1:
+    </p>
+    <pre>
+σ(x) = 1 / (1 + e⁻ˣ)
+    </pre>
+  </div>
+
+  <div class="card materi-card">
+    <h3>Model Logistic Regression</h3>
+    <p>
+      Model Logistic Regression dapat dituliskan sebagai:
+    </p>
+    <pre>
+log(p / (1 - p)) = β₀ + β₁x
+    </pre>
+    <p>
+      Di mana p adalah probabilitas kelas positif.
+    </p>
+  </div>
+
+  <div class="card materi-card">
+    <h3>Jenis Logistic Regression</h3>
+    <ul>
+      <li>Binary Logistic Regression</li>
+      <li>Multinomial Logistic Regression</li>
+      <li>Ordinal Logistic Regression</li>
+    </ul>
+  </div>
+
+  <div class="card materi-card">
+    <h3>Kelebihan dan Kekurangan Logistic Regression</h3>
+    <p><b>Kelebihan:</b></p>
+    <ul>
+      <li>Mudah diinterpretasikan</li>
+      <li>Efektif untuk klasifikasi biner</li>
+    </ul>
+
+    <p><b>Kekurangan:</b></p>
+    <ul>
+      <li>Tidak cocok untuk hubungan non-linier kompleks</li>
+      <li>Sensitif terhadap outlier</li>
+    </ul>
+  </div>
+
+  <div class="card materi-card">
+    <h3>Contoh Implementasi Logistic Regression dengan Python</h3>
+    <pre>
+from sklearn.datasets import load_breast_cancer
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LogisticRegression
+
+# Load dataset
+data = load_breast_cancer()
+X = data.data
+y = data.target
+
+# Split data
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42
+)
+
+# Model Logistic Regression
+model = LogisticRegression(max_iter=1000)
+model.fit(X_train, y_train)
+
+print("Akurasi:", model.score(X_test, y_test))
+    </pre>
+  </div>
+
+  <div class="materi-nav">
+    <a href="pertemuan7.html" class="btn">⬅ Pertemuan 7</a>
+    <a href="pertemuan9.html" class="btn primary">Pertemuan 9 ➜</a>
+  </div>
+</section>
+
+<footer>
+  © <span id="year"></span> Nama Lengkap Anda | Machine Learning
+</footer>
+
+<script src="machine_learning.js"></script>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

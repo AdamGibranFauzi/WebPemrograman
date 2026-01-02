@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pertemuan 3 - Supervised Learning</title>
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="machine_learning.css">
+</head>
+<body>
+
+<section class="container materi-detail">
+  <h2>Pertemuan 3</h2>
+  <p class="subtitle">Supervised Learning</p>
+
+  <div class="card materi-card">
+    <h3>Pengertian Supervised Learning</h3>
+    <p>
+      Supervised Learning adalah metode Machine Learning di mana
+      model dilatih menggunakan data yang <b>sudah memiliki label</b>.
+      Label merupakan nilai target atau output yang ingin diprediksi.
+    </p>
+    <p>
+      Tujuan utama dari supervised learning adalah mempelajari hubungan
+      antara input dan output agar model dapat melakukan prediksi
+      terhadap data baru.
+    </p>
+  </div>
+
+  <div class="card materi-card">
+    <h3>Karakteristik Supervised Learning</h3>
+    <ul>
+      <li>Menggunakan data berlabel</li>
+      <li>Memiliki input (fitur) dan output (target)</li>
+      <li>Dapat digunakan untuk prediksi dan klasifikasi</li>
+      <li>Memerlukan dataset yang berkualitas</li>
+    </ul>
+  </div>
+
+  <div class="card materi-card">
+    <h3>Jenis Supervised Learning</h3>
+    <ul>
+      <li><b>Classification</b> → Output berupa kategori/kelas</li>
+      <li><b>Regression</b> → Output berupa nilai numerik</li>
+    </ul>
+  </div>
+
+  <div class="card materi-card">
+    <h3>Contoh Algoritma Supervised Learning</h3>
+    <ul>
+      <li>Linear Regression</li>
+      <li>Logistic Regression</li>
+      <li>Decision Tree</li>
+      <li>K-Nearest Neighbor (KNN)</li>
+      <li>Support Vector Machine (SVM)</li>
+      <li>Naive Bayes</li>
+    </ul>
+  </div>
+
+  <div class="card materi-card">
+    <h3>Contoh Kasus Supervised Learning</h3>
+    <ul>
+      <li>Prediksi harga rumah</li>
+      <li>Klasifikasi email spam dan non-spam</li>
+      <li>Prediksi kelulusan mahasiswa</li>
+      <li>Deteksi penyakit berdasarkan data medis</li>
+    </ul>
+  </div>
+
+  <div class="card materi-card">
+    <h3>Contoh Implementasi Supervised Learning (Python)</h3>
+    <pre>
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+import pandas as pd
+
+data = pd.read_csv("data.csv")
+
+X = data[['fitur1', 'fitur2']]
+y = data['target']
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42
+)
+
+model = LinearRegression()
+model.fit(X_train, y_train)
+
+print("Akurasi model:", model.score(X_test, y_test))
+    </pre>
+  </div>
+
+  <div class="materi-nav">
+    <a href="pertemuan2.html" class="btn">⬅ Pertemuan 2</a>
+    <a href="pertemuan4.html" class="btn primary">Pertemuan 4 ➜</a>
+  </div>
+</section>
+
+<footer>
+  © <span id="year"></span> Nama Lengkap Anda | Machine Learning
+</footer>
+
+<script src="machine_learning.js"></script>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

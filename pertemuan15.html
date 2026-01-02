@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pertemuan 15 - Real Time Detection Pen & Book</title>
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="machine_learning.css">
+</head>
+<body>
+
+<section class="container materi-detail">
+  <h2>Pertemuan 15</h2>
+  <p class="subtitle">Real-Time Object Detection – Deteksi Pen & Book</p>
+
+  <div class="card materi-card">
+    <h3>Pengenalan Real-Time Object Detection</h3>
+    <p>
+      Real-Time Object Detection adalah teknik pendeteksian
+      objek yang dilakukan secara langsung menggunakan
+      kamera (webcam) dengan hasil deteksi ditampilkan
+      secara realtime.
+    </p>
+  </div>
+
+  <div class="card materi-card">
+    <h3>Studi Kasus: Deteksi Pen dan Book</h3>
+    <p>
+      Pada studi kasus ini, sistem akan mendeteksi
+      objek <b>pen</b> dan <b>book</b> secara realtime
+      menggunakan kamera laptop atau webcam.
+    </p>
+  </div>
+
+  <div class="card materi-card">
+    <h3>Dataset</h3>
+    <ul>
+      <li>Gambar pen dan buku</li>
+      <li>Anotasi bounding box</li>
+      <li>Format YOLO</li>
+    </ul>
+  </div>
+
+  <div class="card materi-card">
+    <h3>Model yang Digunakan</h3>
+    <ul>
+      <li>YOLOv8</li>
+      <li>YOLOv5</li>
+    </ul>
+  </div>
+
+  <div class="card materi-card">
+    <h3>Alur Kerja Real-Time Detection</h3>
+    <ol>
+      <li>Persiapan dataset</li>
+      <li>Training model</li>
+      <li>Akses webcam</li>
+      <li>Deteksi objek secara realtime</li>
+    </ol>
+  </div>
+
+  <div class="card materi-card">
+    <h3>Instalasi Library</h3>
+    <pre>
+pip install ultralytics opencv-python
+    </pre>
+  </div>
+
+  <div class="card materi-card">
+    <h3>Contoh Kode Real-Time Detection</h3>
+    <pre>
+from ultralytics import YOLO
+import cv2
+
+model = YOLO("yolov8n.pt")
+
+cap = cv2.VideoCapture(0)
+
+while True:
+    ret, frame = cap.read()
+    if not ret:
+        break
+
+    results = model(frame)
+
+    annotated_frame = results[0].plot()
+    cv2.imshow("Deteksi Pen & Book", annotated_frame)
+
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
+
+cap.release()
+cv2.destroyAllWindows()
+    </pre>
+  </div>
+
+  <div class="card materi-card">
+    <h3>Manfaat Real-Time Detection</h3>
+    <ul>
+      <li>Monitoring objek secara langsung</li>
+      <li>Mendukung sistem pengawasan cerdas</li>
+      <li>Aplikasi pada pendidikan dan industri</li>
+    </ul>
+  </div>
+
+  <div class="materi-nav">
+    <a href="pertemuan14.html" class="btn">⬅ Pertemuan 14</a>
+    <a href="pertemuan16.html" class="btn primary">Pertemuan 16 ➜</a>
+  </div>
+</section>
+
+<footer>
+  © <span id="year"></span> Nama Lengkap Anda | Machine Learning
+</footer>
+
+<script src="machine_learning.js"></script>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pertemuan 9 - Evaluasi Model Machine Learning</title>
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="machine_learning.css">
+</head>
+<body>
+
+<section class="container materi-detail">
+  <h2>Pertemuan 9</h2>
+  <p class="subtitle">Evaluasi Model Machine Learning</p>
+
+  <div class="card materi-card">
+    <h3>Pengertian Evaluasi Model</h3>
+    <p>
+      Evaluasi model adalah proses untuk mengukur
+      performa model Machine Learning dalam
+      melakukan prediksi terhadap data baru.
+      Evaluasi dilakukan untuk mengetahui seberapa
+      baik model yang telah dibuat.
+    </p>
+  </div>
+
+  <div class="card materi-card">
+    <h3>Tujuan Evaluasi Model</h3>
+    <ul>
+      <li>Mengetahui tingkat akurasi model</li>
+      <li>Membandingkan beberapa model</li>
+      <li>Mendeteksi overfitting dan underfitting</li>
+      <li>Meningkatkan performa model</li>
+    </ul>
+  </div>
+
+  <div class="card materi-card">
+    <h3>Evaluasi untuk Klasifikasi</h3>
+    <ul>
+      <li>Accuracy</li>
+      <li>Precision</li>
+      <li>Recall</li>
+      <li>F1-Score</li>
+      <li>Confusion Matrix</li>
+      <li>ROC Curve & AUC</li>
+    </ul>
+  </div>
+
+  <div class="card materi-card">
+    <h3>Evaluasi untuk Regresi</h3>
+    <ul>
+      <li>Mean Absolute Error (MAE)</li>
+      <li>Mean Squared Error (MSE)</li>
+      <li>Root Mean Squared Error (RMSE)</li>
+      <li>R-Squared (R²)</li>
+    </ul>
+  </div>
+
+  <div class="card materi-card">
+    <h3>Confusion Matrix</h3>
+    <p>
+      Confusion Matrix adalah tabel yang digunakan
+      untuk mengevaluasi hasil klasifikasi dengan
+      membandingkan prediksi dan data aktual.
+    </p>
+    <ul>
+      <li>True Positive (TP)</li>
+      <li>True Negative (TN)</li>
+      <li>False Positive (FP)</li>
+      <li>False Negative (FN)</li>
+    </ul>
+  </div>
+
+  <div class="card materi-card">
+    <h3>Contoh Evaluasi Model dengan Python</h3>
+    <pre>
+from sklearn.metrics import accuracy_score, confusion_matrix
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LogisticRegression
+from sklearn.datasets import load_breast_cancer
+
+# Load dataset
+data = load_breast_cancer()
+X = data.data
+y = data.target
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42
+)
+
+model = LogisticRegression(max_iter=1000)
+model.fit(X_train, y_train)
+
+y_pred = model.predict(X_test)
+
+print("Akurasi:", accuracy_score(y_test, y_pred))
+print("Confusion Matrix:\n", confusion_matrix(y_test, y_pred))
+    </pre>
+  </div>
+
+  <div class="materi-nav">
+    <a href="pertemuan8.html" class="btn">⬅ Pertemuan 8</a>
+    <a href="pertemuan10.html" class="btn primary">Pertemuan 10 ➜</a>
+  </div>
+</section>
+
+<footer>
+  © <span id="year"></span> Nama Lengkap Anda | Machine Learning
+</footer>
+
+<script src="machine_learning.js"></script>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

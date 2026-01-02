@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pertemuan 14 - Multi Label Detection APD</title>
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="machine_learning.css">
+</head>
+<body>
+
+<section class="container materi-detail">
+  <h2>Pertemuan 14</h2>
+  <p class="subtitle">Multi-Label Object Detection – Deteksi APD</p>
+
+  <div class="card materi-card">
+    <h3>Pengenalan Multi-Label Detection</h3>
+    <p>
+      Multi-Label Object Detection adalah teknik dalam
+      Computer Vision di mana satu gambar dapat memiliki
+      <b>lebih dari satu objek</b> dan setiap objek dapat
+      diklasifikasikan ke dalam beberapa label secara bersamaan.
+    </p>
+  </div>
+
+  <div class="card materi-card">
+    <h3>Studi Kasus: Deteksi APD</h3>
+    <p>
+      Deteksi APD (Alat Pelindung Diri) digunakan untuk
+      memantau keselamatan kerja di area industri.
+      Contoh APD yang dideteksi meliputi helm, rompi,
+      masker, dan sepatu safety.
+    </p>
+  </div>
+
+  <div class="card materi-card">
+    <h3>Contoh Label APD</h3>
+    <ul>
+      <li>Helmet</li>
+      <li>Vest</li>
+      <li>Mask</li>
+      <li>Safety Shoes</li>
+      <li>Gloves</li>
+    </ul>
+  </div>
+
+  <div class="card materi-card">
+    <h3>Dataset dan Anotasi</h3>
+    <ul>
+      <li>Gambar pekerja di area kerja</li>
+      <li>Anotasi bounding box multi-label</li>
+      <li>Tools anotasi: LabelImg / Roboflow</li>
+    </ul>
+  </div>
+
+  <div class="card materi-card">
+    <h3>Model untuk Multi-Label Detection</h3>
+    <ul>
+      <li>YOLOv8</li>
+      <li>YOLOv5</li>
+      <li>Faster R-CNN</li>
+    </ul>
+  </div>
+
+  <div class="card materi-card">
+    <h3>Alur Kerja Deteksi APD</h3>
+    <ol>
+      <li>Pengumpulan dataset APD</li>
+      <li>Anotasi multi-label</li>
+      <li>Training model object detection</li>
+      <li>Evaluasi hasil deteksi</li>
+      <li>Implementasi real-time (kamera)</li>
+    </ol>
+  </div>
+
+  <div class="card materi-card">
+    <h3>Contoh Implementasi YOLOv8</h3>
+    <pre>
+pip install ultralytics
+    </pre>
+
+    <pre>
+from ultralytics import YOLO
+
+model = YOLO("yolov8n.pt")
+
+model.train(
+    data="apd_dataset.yaml",
+    epochs=50,
+    imgsz=640
+)
+
+results = model("pekerja_apd.jpg", show=True)
+    </pre>
+  </div>
+
+  <div class="card materi-card">
+    <h3>Manfaat Deteksi APD</h3>
+    <ul>
+      <li>Meningkatkan keselamatan kerja</li>
+      <li>Mengurangi kecelakaan kerja</li>
+      <li>Mendukung sistem K3 berbasis AI</li>
+    </ul>
+  </div>
+
+  <div class="materi-nav">
+    <a href="pertemuan13.html" class="btn">⬅ Pertemuan 13</a>
+    <a href="pertemuan15.html" class="btn primary">Pertemuan 15 ➜</a>
+  </div>
+</section>
+
+<footer>
+  © <span id="year"></span> Nama Lengkap Anda | Machine Learning
+</footer>
+
+<script src="machine_learning.js"></script>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

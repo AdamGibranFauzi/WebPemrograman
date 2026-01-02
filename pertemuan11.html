@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pertemuan 11 - KNN Berbasis Web Flask</title>
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="machine_learning.css">
+</head>
+<body>
+
+<section class="container materi-detail">
+  <h2>Pertemuan 11</h2>
+  <p class="subtitle">KNN Berbasis Web Menggunakan Flask</p>
+
+  <div class="card materi-card">
+    <h3>Pengenalan KNN Berbasis Web</h3>
+    <p>
+      Pada pertemuan ini, algoritma <b>K-Nearest Neighbor (KNN)</b>
+      diimplementasikan dalam bentuk aplikasi web menggunakan
+      framework <b>Flask</b>. Tujuannya agar model Machine Learning
+      dapat diakses melalui browser.
+    </p>
+  </div>
+
+  <div class="card materi-card">
+    <h3>Apa itu Flask?</h3>
+    <p>
+      Flask adalah framework web berbasis Python yang ringan dan
+      sederhana. Flask sering digunakan untuk membuat aplikasi
+      Machine Learning berbasis web karena mudah diintegrasikan
+      dengan model ML.
+    </p>
+  </div>
+
+  <div class="card materi-card">
+    <h3>Alur Kerja Aplikasi KNN Berbasis Web</h3>
+    <ol>
+      <li>User memasukkan data melalui form web</li>
+      <li>Data dikirim ke server Flask</li>
+      <li>Model KNN memproses data</li>
+      <li>Hasil prediksi ditampilkan di browser</li>
+    </ol>
+  </div>
+
+  <div class="card materi-card">
+    <h3>Persiapan Library</h3>
+    <pre>
+pip install flask
+pip install scikit-learn
+pip install numpy
+    </pre>
+  </div>
+
+  <div class="card materi-card">
+    <h3>Contoh Struktur Folder</h3>
+    <pre>
+project_knn_flask/
+│
+├── app.py
+├── model_knn.pkl
+├── templates/
+│   └── index.html
+└── static/
+    └── style.css
+    </pre>
+  </div>
+
+  <div class="card materi-card">
+    <h3>Contoh Kode Flask (app.py)</h3>
+    <pre>
+from flask import Flask, render_template, request
+import pickle
+import numpy as np
+
+app = Flask(__name__)
+
+model = pickle.load(open('model_knn.pkl', 'rb'))
+
+@app.route('/')
+def home():
+    return render_template('index.html')
+
+@app.route('/predict', methods=['POST'])
+def predict():
+    data = [float(x) for x in request.form.values()]
+    final_data = np.array(data).reshape(1, -1)
+    prediction = model.predict(final_data)
+    return render_template('index.html',
+                           prediction_text=f'Hasil Prediksi: {prediction[0]}')
+
+if __name__ == "__main__":
+    app.run(debug=True)
+    </pre>
+  </div>
+
+  <div class="card materi-card">
+    <h3>Contoh Form Input (index.html)</h3>
+    <pre>
+&lt;form action="/predict" method="post"&gt;
+  &lt;input type="text" name="data1" placeholder="Input 1"&gt;
+  &lt;input type="text" name="data2" placeholder="Input 2"&gt;
+  &lt;button type="submit"&gt;Prediksi&lt;/button&gt;
+&lt;/form&gt;
+
+&lt;h3&gt;{{ prediction_text }}&lt;/h3&gt;
+    </pre>
+  </div>
+
+  <div class="card materi-card">
+    <h3>Kelebihan KNN Berbasis Web</h3>
+    <ul>
+      <li>Dapat diakses melalui browser</li>
+      <li>Mudah digunakan oleh user non-teknis</li>
+      <li>Menghubungkan Machine Learning dengan aplikasi nyata</li>
+    </ul>
+  </div>
+
+  <div class="materi-nav">
+    <a href="pertemuan10.html" class="btn">⬅ Pertemuan 10</a>
+    <a href="pertemuan12.html" class="btn primary">Pertemuan 12 ➜</a>
+  </div>
+</section>
+
+<footer>
+  © <span id="year"></span> Nama Lengkap Anda | Machine Learning
+</footer>
+
+<script src="machine_learning.js"></script>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
